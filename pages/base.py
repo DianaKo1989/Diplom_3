@@ -12,11 +12,7 @@ class BasePage:
 
     @allure.step('Переход по URL')
     def open_url(self, url):
-        self.driver.get(url)        
-
-    @allure.step('Ожидание появления элемента')
-    def wait_element_visibility_of_element_located(self, locator):
-        WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(locator))        
+        self.driver.get(url)
 
     @allure.step('Получение URL')
     def get_url(self):

@@ -8,9 +8,9 @@ class TestFeedOrderPage:
         assert feed_page.click_on_order_block()
 
     @allure.title('Синхронизация раздела "История заказов" со страницей "Лента заказов"')
-    def test_check_sync_history_order_and_feed_orders(self, feed_page, log_in_with_order, login_page, profile_page):
+    def test_check_sync_history_order_and_feed_orders(self, feed_page, log_in_and_create_order, login_page, profile_page):
         login_page.open_login_page()
-        number = login_page.log_in_with_order(log_in_with_order)
+        number = login_page.log_in_with_order(log_in_and_create_order)
         profile_page.open_profile_page()
         profile_page.open_history_orders()
         number_in_history = profile_page.find_number_order_in_history_orders()
@@ -39,9 +39,9 @@ class TestFeedOrderPage:
         assert int(counter_after) > int(counter_before)
 
     @allure.title('Проверка увеличения счетчика "В работе" после создания заказа')
-    def test_check_rise_counter_at_work_after_made_order(self, feed_page, login_page, log_in_with_order):
+    def test_check_rise_counter_at_work_after_made_order(self, feed_page, login_page, log_in_and_create_order):
         login_page.open_login_page()
-        number = login_page.log_in_with_order(log_in_with_order)
+        number = login_page.log_in_with_order(log_in_and_create_order)
         feed_page.open_feed_page()
         number_in_at_work = feed_page.check_number_order_in_at_work()
         assert int(number) == int(number_in_at_work) or int(number) == int(number_in_at_work) + 1

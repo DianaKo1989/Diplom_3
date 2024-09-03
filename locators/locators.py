@@ -1,34 +1,33 @@
 from selenium.webdriver.common.by import By
 
 
-class AutorizationLocators:
+class LoginLocators:
     TEXT_ENTER = (By.XPATH, "//h2[contains(text(),'Вход')]")
     FIELD_EMAIL = (By.XPATH, ".//input[@name='name']")
     FIELD_PASSWORD = (By.XPATH, ".//input[@name='Пароль']")
     BUTTON_LOGIN = (By.XPATH, ".//button[text()='Войти']")
     LINK_REGISTER = (By.XPATH, "//a[text()='Зарегистрироваться']")
     LINK_RECOVERY = (By.XPATH, "//a[text()='Восстановить пароль']")
+    BUTTON_RECOVERY = (By.XPATH, ".//button[text()='Восстановить']")
+    LINK_LOGIN = By.XPATH, ".//a[text()='Войти']"
+    BUTTON_VIEW_PASSWORD = (By.XPATH, "//div[@class='input__icon input__icon-action']")
+    FIELD_ACTIVE = By.CSS_SELECTOR, ".input.input_status_active"    
+    PERSONAL_ACCOUNT_BUTTON = By.XPATH, ".//p[contains(@class, 'AppHeader_header__linkText') and text()='Личный Кабинет']"
 
 class MainLocators:
-    PERSONAL_ACCOUNT_BUTTON = By.XPATH, ".//p[contains(@class, 'AppHeader_header__linkText') and text()='Личный Кабинет']"
+    PERSONAL_ACCOUNT_BUTTON = LoginLocators.PERSONAL_ACCOUNT_BUTTON
     BUILDER_BUTTON = By.XPATH, "//p[text()='Конструктор']"
     HEADER_CONSTRUCTOR = By.XPATH, "//h1[text()='Соберите бургер']"
     BUN_ITEM = By.XPATH, "//p[text()='Флюоресцентная булка R2-D3']"
     HEADER_POP_UP = By.XPATH, "//h2[text()='Детали ингредиента']"
     CLOSE_POP_UP_BUTTON = By.XPATH, "//button[contains(@class, 'close')]"
     CLOSE_POP_UP = By.CLASS_NAME, "Modal_modal__P3_V5"
-    HEADER_LOGIN_PAGE = AutorizationLocators.TEXT_ENTER
+    HEADER_LOGIN_PAGE = LoginLocators.TEXT_ENTER
     ADD_SECTION = By.XPATH, "//section[contains(@class, 'BurgerConstructor_basket__29Cd7')]"
     COUNTER_BUN = By.XPATH, "//p[@class='counter_counter__num__3nue1']"
     CREATE_ORDER_BUTTON = By.XPATH, "//button[text()='Оформить заказ']"
     CREATE_ORDER_POP_UP = By.CLASS_NAME, "Modal_modal__container__Wo2l_"
     HEADER_CREATE_ORDER_POP_UP = By.XPATH, "//p[text()='идентификатор заказа']"
-
-class RecoveryLocators:
-    BUTTON_RECOVERY = (By.XPATH, ".//button[text()='Восстановить']")
-    LINK_LOGIN = By.XPATH, ".//a[text()='Войти']"
-    BUTTON_VIEW_PASSWORD = (By.XPATH, "//div[@class='input__icon input__icon-action']")
-    FIELD_ACTIVE = By.CSS_SELECTOR, ".input.input_status_active"
 
 class FeedLocators:
     ORDER_FEED_BUTTON = By.XPATH, "//p[text()='Лента Заказов']"
@@ -45,6 +44,6 @@ class ProfileLocators:
     PROFILE_BUTTON = MainLocators.PERSONAL_ACCOUNT_BUTTON
     USER_HISTORY_MENU = By.XPATH, "//a[text()='История заказов']"
     LOG_OUT_MENU = By.XPATH, "//button[text()='Выход']"
-    LOG_IN_BUTTON = AutorizationLocators.BUTTON_LOGIN
+    LOG_IN_BUTTON = LoginLocators.BUTTON_LOGIN
     NUMBER_ORDER_BLOCK = FeedLocators.NUMBER_ORDER_BLOCK
     ORDER_WITH_NUMBER_ORDER_BLOCKS = FeedLocators.ORDER_WITH_NUMBER_ORDER_BLOCKS

@@ -55,7 +55,7 @@ def user():
 
 
 @pytest.fixture
-def log_in_with_order(user):
+def log_in_and_create_order(user):
     email, password = user
     payload = {
         'email': email,
