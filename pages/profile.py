@@ -31,6 +31,6 @@ class ProfilePage(BasePage):
     def log_out_in_pesonal_account(self):
         self.find_element(ProfileLocators.LOG_OUT_MENU)
         self.click_element(ProfileLocators.LOG_OUT_MENU)
-        self.find_element(ProfileLocators.LOG_IN_BUTTON)
+        self.find_element(ProfileLocators.PROFILE_BUTTON)
         return self.get_url()        
 

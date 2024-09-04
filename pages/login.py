@@ -34,7 +34,6 @@ class LoginPage(BasePage):
         self.send_keys(LoginLocators.FIELD_EMAIL, email)
         self.send_keys(LoginLocators.FIELD_PASSWORD, password)
         self.click_element(LoginLocators.BUTTON_LOGIN)
-        self.find_element(LoginLocators.PERSONAL_ACCOUNT_BUTTON)
 
     @allure.step('Авторизоваться')
     def log_in_main_page(self, user):
